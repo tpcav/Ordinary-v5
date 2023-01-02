@@ -2143,11 +2143,19 @@ function getActiveTiles() {
   return guessGrid.querySelectorAll('[data-state="active"]')
 }
 
-function showAlert(message) {
+function showAlert(message, duration = 100000) {
   const alert = document.createElement("div")
   alert.textContent = message
   alert.classList.add("alert")
   alertContainer.prepend(alert)
+  if (duration == null) return
+
+  setTimeout(() => {
+    alert.classList.add("hide")
+    alert.addEventListener("transitionend", () => {
+      alert.remove()
+    })
+  }, duration)
 }
 
 function shakeTiles(tiles) {
