@@ -2016,7 +2016,7 @@ const targetWord = targetWords.at(targetWords.indexOf(randWord) + 1);
 
 startInteraction()
 // showAlert(targetWord)
-showAlert('The random word is ' + randWord + ".", 10000)
+showAlert('The random word is ' + randWord + ".")
 
 function startInteraction() {
   document.addEventListener("click", handleMouseClick)
@@ -2116,9 +2116,6 @@ function flipTile(tile, index, array, guess) {
       if (targetWord[index] === letter) {
         tile.dataset.state = "correct"
         key.classList.add("correct")
-      } else if (targetWord.includes(letter)) {
-        tile.dataset.state = "wrong-location"
-        key.classList.add("wrong-location")
       } else {
         tile.dataset.state = "wrong"
         key.classList.add("wrong")
@@ -2173,7 +2170,7 @@ function shakeTiles(tiles) {
 
 function checkWinLose(guess, tiles) {
   if (guess === targetWord) {
-    showAlert("You Win.", 5000)
+    showAlert("You Win.")
     danceTiles(tiles)
     stopInteraction()
     return
@@ -2181,7 +2178,7 @@ function checkWinLose(guess, tiles) {
 
   const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])")
   if (remainingTiles.length === 0) {
-    showAlert(targetWord.toUpperCase() + " was the next word.", 5000)
+    showAlert(targetWord.toUpperCase() + " was the next word.")
     stopInteraction()
   }
 }
