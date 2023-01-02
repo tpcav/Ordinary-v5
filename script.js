@@ -2116,6 +2116,9 @@ function flipTile(tile, index, array, guess) {
       if (targetWord[index] === letter) {
         tile.dataset.state = "correct"
         key.classList.add("correct")
+      // } else if (targetWord.includes(letter)) {
+        // tile.dataset.state = "wrong-location"
+        /// key.classList.add("wrong-location")
       } else {
         tile.dataset.state = "wrong"
         key.classList.add("wrong")
